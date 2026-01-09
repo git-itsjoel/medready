@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedReady - Check Medicine Availability</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Top Navbar -->
+    <nav class="navbar">
+        <div class="nav-brand">
+            <h1>MedReady</h1>
+            <span class="nav-subtitle">Pharmacy Availability</span>
+        </div>
+        <div class="nav-links">
+            <a href="index.html" class="active">Home</a>
+            <a href="about.html">About</a>
+            <a href="admin.html">Staff Login</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Headline -->
+        <div class="hero-header" style="text-align: center; margin-bottom: 30px;">
+            <h1 style="color: var(--primary); font-size: 2.5rem; margin-bottom: 10px;">Find Your Medicine Instantly</h1>
+            <p style="color: var(--gray); font-size: 1.2rem;">Check real-time availability at local hospitals.</p>
+        </div>
+
+        <div class="search-backdrop">
+            <div class="form-group-hero" style="position: relative;">
+                <input type="text" id="search-hospital" class="search-box hero-input"
+                    placeholder="Enter Hospital Name..." autocomplete="off">
+                <ul id="hospital-suggestions" class="suggestions-list hidden"></ul>
+            </div>
+
+            <div class="search-row">
+                <input type="text" id="search-medicine" class="search-box" placeholder="Search Medicine Name...">
+
+                <select id="search-category" class="search-box" style="cursor: pointer;">
+                    <option value="">All Categories</option>
+                    <option value="Tablets">Tablets</option>
+                    <option value="Capsules">Capsules</option>
+                    <option value="Syrups">Syrups</option>
+                    <option value="Injections">Injections</option>
+                    <option value="Drops">Drops</option>
+                    <option value="Topical">Topical</option>
+                    <option value="Others">Others</option>
+                </select>
+            </div>
+
+            <input type="text" id="search-category-custom" class="search-box hidden" placeholder="Type Category..."
+                style="margin-top: 10px; width: 100%;">
+        </div>
+
+        <div id="medicine-list" class="medicine-list">
+            <!-- Medicine cards will be injected here -->
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="mock-api.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>

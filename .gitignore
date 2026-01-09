@@ -1,0 +1,21 @@
+# System Files
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Logs
+npm-debug.log
+yarn-error.log
+
+# Dependencies (if you eventually use npm)
+node_modules/
+.pnpm-store
+
+# Environment variables (vital to keep secret!)
+.env
+.env.local
+
+# Editor directories
+.idea/
+.vscode/
+*.swp

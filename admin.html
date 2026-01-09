@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedReady Staff - Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Top Navbar -->
+    <nav class="navbar">
+        <div class="nav-brand">
+            <h1>MedReady</h1>
+            <span class="nav-subtitle">Staff Portal</span>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">← Back to Search</a>
+            <a href="about.html">About</a>
+            <a href="admin.html" class="active">Inventory</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Login Form -->
+        <form id="login-form" class="login-form">
+            <h2 style="margin-bottom: 20px; text-align: center;">Staff Login</h2>
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" class="form-control" placeholder="Enter username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <div style="position: relative;">
+                    <input type="password" id="password" class="form-control" placeholder="Enter staff password"
+                        required style="padding-right: 70px;">
+                    <button type="button" id="toggle-password" class="btn-text-link">Show</button>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Login</button>
+            <p style="text-align: center; margin-top: 15px; font-size: 0.9rem; color: var(--gray);">
+                Usernames: <b>city_staff</b>, <b>general_staff</b><br>
+                Password: <b>admin123</b>
+            </p>
+        </form>
+
+        <!-- Admin Dashboard (Hidden by default) -->
+        <div id="admin-dashboard" class="hidden">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <h2>Inventory Management</h2>
+                <button id="logout-btn" class="btn" style="background: #e9ecef;">Logout</button>
+            </div>
+
+            <!-- Add Medicine -->
+            <div class="medicine-card" style="margin-bottom: 30px; display: block;">
+                <h3 style="margin-bottom: 15px;">Add New Medicine</h3>
+                <p id="staff-hospital-badge" style="margin-bottom: 10px; color: var(--primary); font-weight: bold;"></p>
+                <form id="add-medicine-form" style="display: flex; gap: 10px; flex-wrap: wrap;">
+                    <input type="text" id="new-name" class="form-control" placeholder="Medicine Name" required
+                        style="flex: 2; min-width: 200px;">
+                    <!-- Hospital is now auto-detected from logged-in user -->
+                    <select id="new-category" class="form-control" required style="flex: 1; min-width: 150px;">
+                        <option value="">Select Category</option>
+                        <option value="Tablets">Tablets</option>
+                        <option value="Capsules">Capsules</option>
+                        <option value="Syrups">Syrups</option>
+                        <option value="Injections">Injections</option>
+                        <option value="Drops">Drops</option>
+                        <option value="Topical">Topical</option>
+                        <option value="Others">Others</option>
+                    </select>
+                    <input type="text" id="new-category-custom" class="form-control hidden"
+                        placeholder="Type custom category" style="flex: 1; min-width: 150px;">
+                    <button type="submit" class="btn btn-primary" style="width: auto;">Add</button>
+                </form>
+            </div>
+
+            <!-- List -->
+            <div id="admin-medicine-list" class="medicine-list">
+                <!-- Admin items injected here -->
+            </div>
+        </div>
+
+        <!-- Super Admin Dashboard (Hidden by default) -->
+        <div id="super-admin-dashboard" class="hidden">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <h2 style="color: var(--danger);">Super Admin Panel</h2>
+                <button id="super-logout-btn" class="btn" style="background: #e9ecef;">Logout</button>
+            </div>
+
+            <div class="medicine-card" style="display: block;">
+                <h3 style="margin-bottom: 15px;">Register New Hospital</h3>
+                <form id="add-hospital-form">
+                    <div class="form-group">
+                        <label>New Hospital Name</label>
+                        <input type="text" id="reg-hospital" class="form-control" placeholder="e.g. Westside Clinic"
+                            required>
+                    </div>
+                    <div class="form-group">
+                        <label>Staff Username</label>
+                        <input type="text" id="reg-username" class="form-control" placeholder="e.g. westside_staff"
+                            required>
+                    </div>
+                    <div class="form-group">
+                        <label>Staff Password</label>
+                        <input type="text" id="reg-password" class="form-control" placeholder="e.g. password123"
+                            required>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="background-color: var(--danger);">Create
+                        Account</button>
+                </form>
+            </div>
+
+            <p style="margin-top: 20px; color: var(--gray); font-size: 0.9rem;">
+                * Creating a new hospital adds a staff account. They can then login to manage their specific
+                inventory.
+            </p>
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="mock-api.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
